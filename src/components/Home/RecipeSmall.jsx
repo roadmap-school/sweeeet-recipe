@@ -1,4 +1,5 @@
 import './home.scss';
+import { Link } from 'react-router-dom';
 
 const RecipeSmall = () => (
     <article className="recipe-small">
@@ -6,7 +7,7 @@ const RecipeSmall = () => (
         <div className="recipe-small-content">
             <h2>Crêpe au dentifrice</h2>
             <p>Difficulté: Facile</p>
-            <a>Voir la recette</a>
+            <Link to="/recipe/recette1" >Voir la recette</Link>
         </div>
     </article>
 );
