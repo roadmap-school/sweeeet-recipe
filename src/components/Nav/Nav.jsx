@@ -1,11 +1,21 @@
 import './nav.scss';
 import { NavLink } from 'react-router-dom';
+import slugify from 'slugify';
 
-const Nav = () => (
+const Nav = ({ recipes }) => (
     <nav className='nav'>
         <NavLink to="/" className='nav-item' activeclassname='nav-item-active' exact="true" >Accueil</NavLink>
-        <NavLink to="/recipe/recette1" className='nav-item' activeclassname='nav-item'>Recette 1</NavLink>
-        <NavLink to="/recipe/recette2" className='nav-item' activeclassname='nav-item'>Recette 2</NavLink>
+
+        {recipes.map((recipe) => {
+            const slug = slugify(recipe.title, { lower: true });
+
+            return (
+                <NavLink to={`/recipe/${slug}`} className='nav-item' activeclassname='nav-item' key={recipe.id}>
+                    {recipe.title}
+                </NavLink>
+            );
+        })}
+
     </nav>
 );
 

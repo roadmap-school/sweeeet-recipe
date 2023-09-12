@@ -141,4 +141,5 @@ export default [
       'Dégustez !',
     ],
   },
+  
 ];

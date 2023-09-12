@@ -1,17 +1,14 @@
 import RecipeSmall from "./RecipeSmall";
+import data from "../../data/data";
 
-const Home = () => (
+const Home = ({ recipes }) => (
 
     <main className="home">
         <p>Bienvenue sur mon site de cuisine, régalez-vous les clébards</p>
         <div className="recipe-small-container">
-            <RecipeSmall />
-            <RecipeSmall />
-            <RecipeSmall />
-            <RecipeSmall />
-            <RecipeSmall />
-            <RecipeSmall />
-
+            {recipes.map((recipe) => (
+                <RecipeSmall key={recipe.id} {...recipe} />
+            ))}
         </div>
     </main>
 
