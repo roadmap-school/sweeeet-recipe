@@ -1,5 +1,4 @@
 import RecipeSmall from "./RecipeSmall";
-import data from "../../data/data";
 
 const Home = ({ recipes }) => (
 

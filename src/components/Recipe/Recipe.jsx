@@ -1,6 +1,6 @@
 // == Import npm
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 
 // == Import
 import Header from '../../components/Recipe/Header/Header';
@@ -11,29 +11,24 @@ import './recipe.scss';
 
 
 // == Composant
-const Recipe = ({ recipe }) => (
-  <div className="recipe">
-    <Header
-      title={recipe.title}
-      author={recipe.author}
-      difficulty={recipe.difficulty}
-      thumbnail={recipe.thumbnail}
-    />
-    <Ingredients ingredients={recipe.ingredients} />
-    <Steps steps={recipe.instructions} />
-  </div>
-);
-
-Recipe.propTypes = {
-  recipe: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-    difficulty: PropTypes.string.isRequired,
-    thumbnail: PropTypes.string.isRequired,
-    ingredients: PropTypes.array.isRequired,
-    instructions: PropTypes.array.isRequired,
-  }).isRequired,
+const Recipe = ({ recipe }) => {
+  const { slug } = useParams();
+  console.log("slug: " + slug);
+  
+  return (
+    <div className="recipe">
+      <Header
+        title={recipe.title}
+        author={recipe.author}
+        difficulty={recipe.difficulty}
+        thumbnail={recipe.thumbnail}
+      />
+      <Ingredients ingredients={recipe.ingredients} />
+      <Steps steps={recipe.instructions} />
+    </div>
+  );
 };
+
 
 // == Export
 export default Recipe;

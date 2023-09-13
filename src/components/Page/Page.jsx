@@ -20,10 +20,9 @@ const Page = ({ recipes }) => (
 
                 {/* 2nd route */}
 
-                <Route />
-                {/* path="/recipe/recette1"
-                    element={<Recipe recipe={data[0]} />}  */}
-
+                <Route
+                    path="/recipe/:slug"
+                    element={<Recipe recipe={recipes[0]} />} />
 
             </Routes>
 
