@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { getRecipeBySlug } from '../../Utils/Selectors';
 
 // == Import
 import Header from '../../components/Recipe/Header/Header';
@@ -11,20 +12,21 @@ import './recipe.scss';
 
 
 // == Composant
-const Recipe = ({ recipe }) => {
+const Recipe = ({ recipes }) => {
+
   const { slug } = useParams();
-  console.log("slug: " + slug);
-  
+  const recipeFound = getRecipeBySlug(recipes, slug);
+
   return (
     <div className="recipe">
       <Header
-        title={recipe.title}
-        author={recipe.author}
-        difficulty={recipe.difficulty}
-        thumbnail={recipe.thumbnail}
+        title={recipeFound.title}
+        author={recipeFound.author}
+        difficulty={recipeFound.difficulty}
+        thumbnail={recipeFound.thumbnail}
       />
-      <Ingredients ingredients={recipe.ingredients} />
-      <Steps steps={recipe.instructions} />
+      <Ingredients ingredients={recipeFound.ingredients} />
+      <Steps steps={recipeFound.instructions} />
     </div>
   );
 };

@@ -22,7 +22,7 @@ const Page = ({ recipes }) => (
 
                 <Route
                     path="/recipe/:slug"
-                    element={<Recipe recipe={recipes[0]} />} />
+                    element={<Recipe recipes={recipes} />} />
 
             </Routes>
 
